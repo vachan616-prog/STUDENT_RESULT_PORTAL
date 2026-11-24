@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Result Portal | Academic Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-icon">🎓</div>
+        <div>
+          <h1>Student Result Portal</h1>
+          <p class="subtitle">Academic Performance Management System</p>
+        </div>
+      </div>
+      <div class="session">ACADEMIC SESSION 2026–27</div>
+    </div>
+  </header>
+
+  <main>
+    <div class="intro">
+      <h2>Generate Student Marksheet</h2>
+      <p>Enter student information and subject marks to calculate the academic result automatically.</p>
+    </div>
+
+    <div class="layout">
+      <section class="panel" id="formPanel">
+        <h3>Student Information</h3>
+        <form id="resultForm">
+          <div class="field-grid">
+            <div class="field full">
+              <label for="studentName">Full Name</label>
+              <input id="studentName" type="text" placeholder="Enter student name" required maxlength="60">
+            </div>
+            <div class="field">
+              <label for="rollNumber">Roll Number</label>
+              <input id="rollNumber" type="text" placeholder="e.g. BCA001" required maxlength="20">
+            </div>
+            <div class="field">
+              <label for="course">Course / Class</label>
+              <select id="course" required>
+                <option value="">Select course</option>
+                <option>BCA - 1st Semester</option>
+                <option>BCA - 2nd Semester</option>
+                <option>BCA - 3rd Semester</option>
+                <option>BCA - 4th Semester</option>
+                <option>BCA - 5th Semester</option>
+                <option>BCA - 6th Semester</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="exam">Examination</label>
+              <select id="exam">
+                <option>Mid-Term Examination</option>
+                <option>End-Semester Examination</option>
+                <option>Internal Assessment</option>
+                <option>Practical Examination</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="year">Academic Year</label>
+              <input id="year" type="text" value="2026–27" required>
+            </div>
+          </div>
+
+          <div class="section-label">Subject-wise marks</div>
+          <p class="hint">Enter marks out of 100 in each subject. Minimum passing marks: 40.</p>
+          <div id="subjects">
+            <div class="subject-row"><div class="subject-name">Web Technology</div><input type="number" min="0" max="100" step="1" placeholder="0–100" aria-label="Web Technology marks" required></div>
+            <div class="subject-row"><div class="subject-name">Programming in C</div><input type="number" min="0" max="100" step="1" placeholder="0–100" aria-label="Programming in C marks" required></div>
+            <div class="subject-row"><div class="subject-name">Computer Fundamentals</div><input type="number" min="0" max="100" step="1" placeholder="0–100" aria-label="Computer Fundamentals marks" required></div>
+            <div class="subject-row"><div class="subject-name">Mathematics</div><input type="number" min="0" max="100" step="1" placeholder="0–100" aria-label="Mathematics marks" required></div>
+            <div class="subject-row"><div class="subject-name">English</div><input type="number" min="0" max="100" step="1" placeholder="0–100" aria-label="English marks" required></div>
+          </div>
+          <div class="actions">
+            <button class="primary" type="submit">Calculate Result</button>
+            <button class="secondary" type="reset">Clear Form</button>
+          </div>
+          <p id="message" class="message" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="panel" id="resultPanel">
+        <div class="empty" id="emptyState">
+          <div class="symbol">📄</div>
+          <h3>Your marksheet will appear here</h3>
+          <p>Fill in the student details and marks, then select “Calculate Result”.</p>
+        </div>
+        <div id="result">
+          <div class="result-head">
+            <div class="seal">🏛️</div>
+            <h3>STUDENT ACADEMIC MARKSHEET</h3>
+            <p id="resultExam">Examination Result</p>
+          </div>
+          <div class="student-info">
+            <div class="info-item"><span>Student Name</span><strong id="outName"></strong></div>
+            <div class="info-item"><span>Roll Number</span><strong id="outRoll"></strong></div>
+            <div class="info-item"><span>Course / Class</span><strong id="outCourse"></strong></div>
+            <div class="info-item"><span>Academic Year</span><strong id="outYear"></strong></div>
+          </div>
+          <table>
+            <thead><tr><th>Subject</th><th>Maximum</th><th>Obtained</th></tr></thead>
+            <tbody id="marksBody"></tbody>
+          </table>
+          <div class="summary">
+            <div class="stat"><span>TOTAL MARKS</span><strong id="outTotal">0/500</strong></div>
+            <div class="stat"><span>PERCENTAGE</span><strong id="outPercent">0%</strong></div>
+            <div class="stat"><span>GRADE</span><strong id="outGrade">-</strong></div>
+          </div>
+          <div class="status" id="outStatus">RESULT</div>
+          <p class="grade-note">Grade scale: A+ = 90% and above · A = 80–89% · B = 70–79% · C = 60–69% · D = 40–59% · F = below 40%. A student must score at least 40 marks in every subject to pass.</p>
+          <div class="actions result-actions">
+            <button class="print-btn" type="button" id="printButton">🖨 Print Marksheet</button>
+            <button class="secondary" type="button" id="editButton">Edit Details</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer>Student Result Portal · Front-end PBL Project · Built with HTML, CSS &amp; JavaScript</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
