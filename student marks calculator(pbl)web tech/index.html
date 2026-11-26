@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ITM University Gwalior - Student Result Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="toolbar no-print">
+    <div class="toolbar-title">
+      <strong>Result Portal Editor</strong>
+      <span>Click any field, subject, or mark to edit directly</span>
+    </div>
+    <div class="toolbar-actions">
+      <button type="button" class="btn btn-secondary" id="addSubjectBtn">+ Add Subject</button>
+      <button type="button" class="btn btn-secondary" id="resetBtn">Reset Default</button>
+      <button type="button" class="btn btn-primary" onclick="window.print()">Print / Save PDF</button>
+    </div>
+  </div>
+
+  <main class="sheet">
+    <header class="uni-header">
+      <div class="logo-box">
+        <img
+          src="https://yt3.googleusercontent.com/-NAvm54YqX495nAX18ZqPBmyZDpADKQUvXh1LDhyrdrnNgwrb5o6TsJXFe7z5I3SmdOhcE0npA=s900-c-k-c0x00ffffff-no-rj"
+          alt="ITM University Logo"
+          id="uniLogo"
+          onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='flex';"
+        />
+        <div id="logoFallback" class="logo-fallback" style="display: none;">
+          <span>ITM</span>
+        </div>
+      </div>
+
+      <div class="uni-details">
+        <h1 contenteditable="true">ITM UNIVERSITY GWALIOR (M.P.)</h1>
+        <p class="subtitle" contenteditable="true">Established by Govt. of M.P. Act No. 35 of 2010 | Approved by UGC</p>
+        <div class="exam-badge" contenteditable="true">STATEMENT OF MARKS — END SEMESTER EXAMINATION (2026–2029)</div>
+      </div>
+    </header>
+
+    <section class="student-info">
+      <div class="info-row">
+        <span class="label">Student Name:</span>
+        <span class="value" contenteditable="true">Vachan Singh</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Roll Number:</span>
+        <span class="value" contenteditable="true">BCAN1CA26075</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Program / Branch:</span>
+        <span class="value" contenteditable="true">Bachelor of Computer Applications (BCA)</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Semester / Session:</span>
+        <span class="value" contenteditable="true">1st Semester (2026–2029)</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Father's Name:</span>
+        <span class="value" contenteditable="true">Gajendra Singh</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Mother's Name:</span>
+        <span class="value" contenteditable="true">Poonam Devi</span>
+      </div>
+    </section>
+
+    <section class="marks-section">
+      <table class="marks-table" id="marksTable">
+        <thead>
+          <tr>
+            <th style="width: 14%;">Subject Code</th>
+            <th style="width: 38%;">Subject Title</th>
+            <th style="width: 11%;">Credits</th>
+            <th style="width: 11%;">Max Marks</th>
+            <th style="width: 12%;">Obtained</th>
+            <th style="width: 8%;">Grade</th>
+            <th style="width: 6%;" class="no-print">Del</th>
+          </tr>
+        </thead>
+        <tbody id="subjectsBody">
+          <!-- Populated dynamically via script.js -->
+        </tbody>
+        <tfoot>
+          <tr class="total-row">
+            <td colspan="2" class="text-right"><strong>GRAND TOTAL</strong></td>
+            <td id="totalCredits"><strong>0</strong></td>
+            <td id="totalMax"><strong>0</strong></td>
+            <td id="totalObtained"><strong>0</strong></td>
+            <td colspan="2"></td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <section class="summary-grid">
+      <div class="summary-card">
+        <span class="summary-label">Percentage</span>
+        <span class="summary-value" id="percentageDisplay">0.00%</span>
+      </div>
+      <div class="summary-card">
+        <span class="summary-label">SGPA</span>
+        <span class="summary-value" id="sgpaDisplay">0.00</span>
+      </div>
+      <div class="summary-card">
+        <span class="summary-label">Result Status</span>
+        <span class="summary-value status-pass" id="resultStatus">PASS</span>
+      </div>
+    </section>
+
+    <footer class="sheet-footer">
+      <div class="note">
+        <p><strong>Note:</strong> Minimum passing marks are 40% in each subject. This is a computer-generated provisional marksheet.</p>
+        <p contenteditable="true">Date of Issue: November 26, 2026 | Place: Gwalior</p>
+      </div>
+      <div class="signature">
+        <div class="sig-line"></div>
+        <p contenteditable="true">Controller of Examinations</p>
+      </div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
